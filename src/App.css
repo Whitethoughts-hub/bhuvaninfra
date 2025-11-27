@@ -1,0 +1,72 @@
+html {
+  font-family: "Fellix", sans-serif;
+}
+h2 {
+  font-size: 40px;
+  font-weight: 400;
+}
+.gradient {
+  background: linear-gradient(90deg, #d11b23 0%, #820a10 100%);
+}
+.gradient-text-color {
+  background: -webkit-linear-gradient(#d11b23, #820a10);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.hover-gradient:hover {
+  background: linear-gradient(90deg, #d11b23 0%, #820a10 100%);
+  border: 1px solid transparent;
+  border-image: linear-gradient(90deg, #d11b23 0%, #820a10 100%);
+}
+
+p {
+  font-size: 16px !important;
+  font-weight: 400;
+}
+.heading-text {
+  font-size: 50px;
+}
+@media (max-width: 639px) {
+  .heading-text {
+    font-size: 32px !important;
+  }
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+  .heading-text {
+    font-size: 32px !important;
+  }
+}
+.active {
+  color: #5a0a0a !important;
+}
+/* MENU PANEL DROPDOWN */
+@keyframes menuDrop {
+  0% {
+    max-height: 0;
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    max-height: 300px;
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-menuDrop {
+  animation: menuDrop 0.35s ease-out forwards;
+}
+.bg-image {
+  background-image: url("./assets/backgroundImage.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.font-weight-custom {
+  font-weight: 500;
+}
+h3,
+h4 {
+  font-size: 30px;
+}
