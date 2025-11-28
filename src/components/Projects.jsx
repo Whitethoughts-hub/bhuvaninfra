@@ -25,7 +25,9 @@ const Projects = () => {
   };
   return (
     <section className="flex flex-col justify-center items-center pt-[50px] md:pt-[100px]">
-      <h2 className="text-center gradient-text-color w-full">Our Projects</h2>
+      <h2 className="text-center gradient-text-color w-full">
+        Project Highlights
+      </h2>
 
       <ResdentialVillas />
       <div className="max-w-[1300px] w-full overflow-hidden px-[20px] md:px-[40px]">

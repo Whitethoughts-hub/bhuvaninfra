@@ -81,7 +81,7 @@ const Contact = () => {
 
             {/* EMAIL */}
             <motion.div variants={itemVariant}>
-              <a href="mailto:info@csrestates.com">
+              <a href="mailto:info@bhuvaninfra.in">
                 <h4 className="text-[18px] gradient-text-color inline-block cursor-pointer">
                   info@bhuvaninfra.in
                 </h4>
@@ -89,25 +89,28 @@ const Contact = () => {
             </motion.div>
 
             {/* MAP */}
-            <motion.div variants={itemVariant}>
-              <iframe
-                title="Sample Map"
-                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15225.188272612912!2d78.385201!3d17.44549!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb915fdb812229%3A0x54646b51e61ed53c!2sCSR%20Estate!5e0!3m2!1sen!2sin!4v1757667577672!5m2!1sen!2sin"
-                className="border-0 w-full md:w-[80%] h-[200px] md:h-[150px]"
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              ></iframe>
+            <motion.div
+              variants={itemVariant}
+              className="w-full flex justify-start" // align left
+            >
+              <div className="w-full md:w-4/5">
+                <iframe
+                  title="Sample Map"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d742371.5603038683!2d77.22483318545089!3d17.410173055440918!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb99daeaebd2c7%3A0xae93b78392bafbc2!2sHyderabad%2C%20Telangana!5e1!3m2!1sen!2sin!4v1764334734389!5m2!1sen!2sin"
+                  className="w-full h-full border-0"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                ></iframe>
+              </div>
             </motion.div>
 
             {/* ADDRESS */}
             <motion.p variants={itemVariant}>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Vaishnavi's Cymbol, 1A, First Floor,
               <br className="hidden sm:block" />
-              Adipisci harum fugit in amet ab illum blanditiis suscipit numquam
-              <br className="hidden sm:block" /> Autem dolorum quo doloremque,
-              facilis, minus voluptas.
+              Opp: Nanakramguda Toll Gate,
               <br className="sm:block hidden" />
-              minima perspiciatis tenetur
+              Hyderabad, 500032.
             </motion.p>
 
             {/* CIN */}
