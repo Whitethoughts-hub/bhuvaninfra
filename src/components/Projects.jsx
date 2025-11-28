@@ -35,7 +35,7 @@ const Projects = () => {
         <img
           src={ResidentialVillas}
           alt="Sample"
-          className="w-full h-full object-cover rounded-2xl"
+          className="w-full h-full object-cover"
         />
       </div>
 
@@ -44,7 +44,7 @@ const Projects = () => {
         <img
           src={GrandEntryImage}
           alt="Sample"
-          className="w-full h-full object-cover rounded-3xl"
+          className="w-full h-full object-cover"
         />
       </div>
       <ConventionCenters />
