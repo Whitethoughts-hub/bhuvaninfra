@@ -14,22 +14,49 @@ const Footer = () => {
         "
       >
         <p className="text-sm md:text-base leading-tight">
-          © 2025 All rights reserved | Privacy Policy <br />
-          Designed & Developed by{" "}
+          © 2025 All rights reserved | Designed & Developed by{" "}
+          <br className="hidden md:block" />
           <a href="https://whitethoughts.in" target="_blank">
             White Thoughts & Branding
           </a>
         </p>
+        <div className="flex gap-4 text-[16px]">
+          {/* FACEBOOK */}
+          <a
+            href="https://www.facebook.com/profile.php?id=61584428188508"
+            aria-label="Facebook"
+            target="_blank"
+            className="
+      w-7 h-7 flex items-center justify-center
+       shadow text-white  rounded shadow-md  group transition-all duration-300
+    "
+          >
+            <FaFacebookF className="transition-transform duration-300 hover:scale-125" />
+          </a>
 
-        <div className="flex gap-4 text-lg">
-          <a href="#" aria-label="Facebook">
-            <FaFacebookF />
+          {/* INSTAGRAM */}
+          <a
+            href="https://www.instagram.com/bhuvan_infra/"
+            aria-label="Instagram"
+            target="_blank"
+            className="
+      w-7 h-7 flex items-center justify-center
+      shadow text-white  rounded shadow-md  group transition-all duration-300
+    "
+          >
+            <FaInstagram className="transition-transform duration-300 hover:scale-125" />
           </a>
-          <a href="#" aria-label="Instagram">
-            <FaInstagram />
-          </a>
-          <a href="#" aria-label="LinkedIn">
-            <FaLinkedinIn />
+
+          {/* LINKEDIN */}
+          <a
+            href="#"
+            aria-label="LinkedIn"
+            className="
+      w-7 h-7 flex items-center justify-center
+      text-white rounded shadow-md  group transition-all duration-300
+    "
+          >
+            <FaLinkedinIn className="transition-transform duration-300 hover:scale-125" />
           </a>
         </div>
       </footer>

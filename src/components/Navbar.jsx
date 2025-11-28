@@ -44,21 +44,21 @@ const Navbar = () => {
 
           {/* MOBILE HAMBURGER */}
           <button
-            className="md:hidden flex flex-col justify-center items-center w-10 h-8 gap-1"
+            className="md:hidden flex flex-col justify-center items-center w-6 h-8 gap-1"
             onClick={() => setIsOpen(!isOpen)}
           >
             <span
-              className={`block h-0.5 w-8 bg-gray-800 transition-all duration-300 ${
+              className={`block h-0.5 w-6 bg-gray-800 transition-all duration-300 ${
                 isOpen ? "rotate-45 translate-y-[6px]" : ""
               }`}
             />
             <span
-              className={`block h-0.5 w-8 bg-gray-800 transition-all duration-300 ${
+              className={`block h-0.5 w-6 bg-gray-800 transition-all duration-300 ${
                 isOpen ? "opacity-0" : ""
               }`}
             />
             <span
-              className={`block h-0.5 w-8 bg-gray-800 transition-all duration-300 ${
+              className={`block h-0.5 w-6 bg-gray-800 transition-all duration-300 ${
                 isOpen ? "-rotate-45 -translate-y-[6px]" : ""
               }`}
             />

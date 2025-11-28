@@ -1,12 +1,16 @@
+html,
+body {
+  overflow-x: hidden;
+}
 html {
   font-family: "Fellix", sans-serif;
 }
 h2 {
-  font-size: 40px;
+  font-size: 32px;
   font-weight: 400;
 }
 .gradient {
-  background: linear-gradient(90deg, #d11b23 0%, #820a10 100%);
+  background: linear-gradient(0deg, #215042 0%, #718f86 100%);
 }
 .gradient-text-color {
   background: -webkit-linear-gradient(#d11b23, #820a10);
@@ -14,9 +18,9 @@ h2 {
   -webkit-text-fill-color: transparent;
 }
 .hover-gradient:hover {
-  background: linear-gradient(90deg, #d11b23 0%, #820a10 100%);
+  background: linear-gradient(0deg, #215042 0%, #718f86 100%);
   border: 1px solid transparent;
-  border-image: linear-gradient(90deg, #d11b23 0%, #820a10 100%);
+  border-image: linear-gradient(0deg, #215042 0%, #718f86 100%);
 }
 
 p {
@@ -24,7 +28,7 @@ p {
   font-weight: 400;
 }
 .heading-text {
-  font-size: 50px;
+  font-size: 32px;
 }
 @media (max-width: 639px) {
   .heading-text {
@@ -69,4 +73,7 @@ p {
 h3,
 h4 {
   font-size: 30px;
+}
+.text-size-28 {
+  font-size: 28px !important;
 }
