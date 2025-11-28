@@ -1,6 +1,7 @@
 import Heading from "./Heading";
 import ResidentialVillas from "../assets/residential-villas.jpg";
 import GrandEntryImage from "../assets/entryandexit.jpg";
+import PremiusCloubhouse from "../assets/premiumclubhouse.jpg";
 import About from "../assets/about.jpg";
 import ResdentialVillas from "../components/Headings/ResdentialVillas";
 import FarmHouses from "../components/Headings/FarmHouses";
@@ -50,7 +51,7 @@ const Projects = () => {
 
       <div className="max-w-[1300px] w-full overflow-hidden px-[20px] md:px-[40px] pb-[50px] md:pb-[100px]">
         <img
-          src={ResidentialVillas}
+          src={PremiusCloubhouse}
           alt="Sample"
           className="w-full h-full object-cover"
         />
