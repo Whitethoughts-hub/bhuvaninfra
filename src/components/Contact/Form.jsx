@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { motion } from "framer-motion";
+import { useState } from "react";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 
@@ -72,7 +71,7 @@ const ContactForm = () => {
     <div className="bg-[#FAFAFA] h-full w-full px-4 md:px-8 py-6 md:py-10 rounded-xl flex flex-col items-start justify-center">
       <h2 className="gradient-text-color text-left pb-[10px]">Get In Touch</h2>
 
-      <div className="w-full max-w-[420px]">
+      <div className="w-full max-w-[80px]">
         <form
           onSubmit={handleSubmit}
           className="flex flex-col items-start w-full gap-1"

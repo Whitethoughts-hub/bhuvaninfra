@@ -92,7 +92,7 @@ const Projects = () => {
               whileInView="visible"
               viewport={{ once: true, amount: 0.3 }}
             >
-              <motion.li variants={listItem}>Decades-long Expertise</motion.li>
+              <motion.li variants={listItem}>Decades-Long Expertise</motion.li>
               <motion.li variants={listItem}>
                 Strong Land Development Discipline
               </motion.li>
