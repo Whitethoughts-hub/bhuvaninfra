@@ -24,6 +24,8 @@ const Contact = () => {
 
   return (
     <>
+      {/* -------------------- NEW CONTACT HEADING SECTION -------------------- */}
+      {/* -------------------- NEW CONTACT HEADING SECTION -------------------- */}
       <section className="w-full flex justify-center bg-white">
         <motion.div
           className="w-full max-w-[1300px] px-[20px] md:px-[40px] pt-[50px] md:pt-[70px] flex flex-col items-start"
@@ -56,6 +58,8 @@ const Contact = () => {
           </motion.p>
         </motion.div>
       </section>
+
+      {/* ------------------------- MAIN CONTACT SECTION ------------------------- */}
       <section className="w-full flex justify-center bg-white">
         <motion.div
           className="w-full max-w-[1300px] px-[20px] md:px-[40px] pt-[15px] md:pt-[100px] pb-[50px] md:pb-[100px] flex flex-col md:flex-row gap-[25px]"
@@ -64,7 +68,9 @@ const Contact = () => {
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
         >
+          {/* LEFT SIDE */}
           <div className="w-full md:w-[60%] flex flex-col justify-between gap-[15px]">
+            {/* PHONE */}
             <motion.div variants={itemVariant}>
               <a href="tel:+91 40 2311 8484">
                 <h3 className="gradient-text-color inline-block cursor-pointer">
@@ -73,6 +79,7 @@ const Contact = () => {
               </a>
             </motion.div>
 
+            {/* EMAIL */}
             <motion.div variants={itemVariant}>
               <a href="mailto:info@bhuvaninfra.in">
                 <h4 className="text-[18px] gradient-text-color inline-block cursor-pointer">
@@ -81,9 +88,10 @@ const Contact = () => {
               </a>
             </motion.div>
 
+            {/* MAP */}
             <motion.div
               variants={itemVariant}
-              className="w-full flex justify-start"
+              className="w-full flex justify-start" // align left
             >
               <div className="w-full md:w-4/5">
                 <iframe
@@ -95,6 +103,8 @@ const Contact = () => {
                 ></iframe>
               </div>
             </motion.div>
+
+            {/* ADDRESS */}
             <motion.p variants={itemVariant}>
               Vaishnavi's Cymbol, 1A, First Floor,
               <br className="hidden sm:block" />
@@ -102,6 +112,8 @@ const Contact = () => {
               <br className="sm:block hidden" />
               Hyderabad, 500032.
             </motion.p>
+
+            {/* CIN */}
             <motion.h3
               className="text-[16px] gradient-text-color"
               variants={itemVariant}
@@ -109,6 +121,8 @@ const Contact = () => {
               Lorem minima perspiciatis tenetur
             </motion.h3>
           </div>
+
+          {/* RIGHT SIDE - FORM */}
           <motion.div
             className="w-full md:w-[50%] flex justify-end items-start md:items-end"
             variants={itemVariant}

@@ -71,7 +71,7 @@ const ContactForm = () => {
     <div className="bg-[#FAFAFA] h-full w-full px-4 md:px-8 py-6 md:py-10 rounded-xl flex flex-col items-start justify-center">
       <h2 className="gradient-text-color text-left pb-[10px]">Get In Touch</h2>
 
-      <div className="w-full max-w-[80px]">
+      <div className="w-full max-w-[480px]">
         <form
           onSubmit={handleSubmit}
           className="flex flex-col items-start w-full gap-1"
