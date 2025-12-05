@@ -10,10 +10,11 @@ h2 {
   font-weight: 400;
 }
 .gradient {
-  background: linear-gradient(0deg, #215042 0%, #718f86 100%);
+  background: #f37a21;
 }
 .gradient-text-color {
-  background: -webkit-linear-gradient(#d11b23, #820a10);
+  background: -webkit-linear-gradient(#215042, #f37a21);
+
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }

@@ -8,6 +8,7 @@ const ContactForm = () => {
     email: "",
     mobile: "",
     message: "",
+    fullPhoneNumber: "+91xxxx",
   });
 
   const [selectedCountry, setSelectedCountry] = useState("in");
@@ -52,19 +53,47 @@ const ContactForm = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validate()) return;
 
-    console.log("Form Submitted:", {
+    const payload = {
       ...formData,
       fullPhoneNumber: `${countryCode}${formData.mobile}`,
-    });
+    };
 
-    setFormData({ name: "", email: "", mobile: "", message: "" });
-    setSelectedCountry("in");
-    setCountryCode("+91");
-    setErrors({});
+    // 1️⃣ PRINT OBJECT TO CONSOLE
+    console.log("Form Submitted:", payload);
+
+    // 2️⃣ SEND API REQUEST
+    try {
+      const response = await fetch("https://your-backend-url.com/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      // If backend returns JSON
+      const result = await response.json();
+      console.log("Server Response:", result);
+
+      if (!response.ok) {
+        throw new Error(result.message || "Something went wrong");
+      }
+
+      alert("Message sent successfully!");
+
+      // 3️⃣ RESET FORM
+      setFormData({ name: "", email: "", mobile: "", message: "" });
+      setSelectedCountry("in");
+      setCountryCode("+91");
+      setErrors({});
+    } catch (error) {
+      console.error("API Error:", error);
+      alert("Failed to send message. Please try again.");
+    }
   };
 
   return (

@@ -98,7 +98,7 @@ const Banner = () => {
                 className="flex justify-center items-center text-[16px] cursor-pointer"
                 initial="hidden"
                 animate="visible"
-                whileHover="hover"
+                whileTap={{ scale: 0.95 }} // <-- CLICK EFFECT
                 variants={{
                   visible: {
                     transition: {
@@ -121,10 +121,14 @@ const Banner = () => {
                       y: alreadyAnimated ? 0 : 10,
                       rotateY: 0,
                     }}
-                    animate={{ opacity: 1, y: 0, rotateY: 0 }}
+                    animate={{
+                      opacity: 1,
+                      y: 0,
+                      rotateY: 0,
+                    }}
                     variants={{
                       visible: { opacity: 1, y: 0, rotateY: 0 },
-                      hover: { rotateY: 360 },
+                      hover: { rotateY: 360, y: 0 },
                     }}
                     transition={{
                       duration: 0.9,

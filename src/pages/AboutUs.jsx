@@ -50,7 +50,7 @@ const AboutUs = () => {
               initial="hidden"
               animate="visible"
             >
-              ABOUT US
+              About Us
             </motion.h2>
 
             {/* Paragraph */}
@@ -82,9 +82,9 @@ const AboutUs = () => {
               animate="visible"
             >
               <h2 className="pb-[10px] gradient-text-color">
-                FOUNDER’S PROFILE
+                Founder’S Profile
               </h2>
-              <p className="w-full md:w-[75%]">
+              <p className="w-full">
                 K. Anil Reddy began his journey in 2002 with a focus on
                 dependable building practices and intricate planning. He has
                 completed more than 26 projects and shaped over 10,00,000 sq.
