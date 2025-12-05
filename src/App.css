@@ -9,6 +9,9 @@ h2 {
   font-size: 32px;
   font-weight: 400;
 }
+.footer-background {
+  background: linear-gradient(0deg, #215042 0%, #718f86 100%);
+}
 .gradient {
   background: #f37a21;
 }
@@ -77,4 +80,7 @@ h4 {
 }
 .text-size-28 {
   font-size: 28px !important;
+}
+.font-size-cus {
+  font-size: 26px !important;
 }

@@ -2,7 +2,7 @@ import { FaFacebookF, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <div className="w-full flex justify-center gradient">
+    <div className="w-full flex justify-center footer-background">
       <footer
         className="
           w-full max-w-[1300px] text-white 

@@ -71,19 +71,18 @@ const Contact = () => {
           {/* LEFT SIDE */}
           <div className="w-full md:w-[60%] flex flex-col justify-between gap-[15px]">
             {/* PHONE */}
-            <motion.div variants={itemVariant}>
-              <a href="tel:+91 40 2311 8484">
-                <h3 className="gradient-text-color inline-block cursor-pointer">
-                  +91 XXXX XXXX XX
-                </h3>
-              </a>
-            </motion.div>
 
             {/* EMAIL */}
             <motion.div variants={itemVariant}>
+              <a href="tel:+91 40 2311 8484">
+                <h3 className="gradient-text-color inline-block cursor-pointer font-size-cus">
+                  +91 XXXX XXXX XX
+                </h3>
+              </a>{" "}
+              <br />
               <a href="mailto:info@bhuvaninfra.in">
-                <h4 className="text-[18px] gradient-text-color inline-block cursor-pointer">
-                  info@bhuvaninfra.in
+                <h4 className="text-[18px] gradient-text-color inline-block cursor-pointer font-size-cus">
+                  info@bhuvaninfra.com
                 </h4>
               </a>
             </motion.div>
@@ -103,25 +102,30 @@ const Contact = () => {
                 ></iframe>
               </div>
             </motion.div>
-
-            {/* ADDRESS */}
-            <motion.p variants={itemVariant}>
-              Vaishnavi's Cymbol, 1A, First Floor,
-              <br className="hidden sm:block" />
-              Opp: Nanakramguda Toll Gate,
-              <br className="sm:block hidden" />
-              Hyderabad, 500032.
-            </motion.p>
-
             {/* CIN */}
-            <motion.h3
-              className="text-[16px] gradient-text-color"
-              variants={itemVariant}
-            >
-              Lorem minima perspiciatis tenetur
-            </motion.h3>
+            <div>
+              <motion.h3
+                initial="hidden"
+                whileInView="visible"
+                className="text-[16px] gradient-text-color"
+                variants={itemVariant}
+              >
+                Address
+              </motion.h3>
+              {/* ADDRESS */}
+              <motion.p
+                variants={itemVariant}
+                initial="hidden"
+                whileInView="visible"
+              >
+                Vaishnavi's Cymbol, 1A, First Floor,
+                <br className="hidden sm:block" />
+                Opp: Nanakramguda Toll Gate,
+                <br className="sm:block hidden" />
+                Hyderabad, 500032.
+              </motion.p>
+            </div>
           </div>
-
           {/* RIGHT SIDE - FORM */}
           <motion.div
             className="w-full md:w-[50%] flex justify-end items-start md:items-end"

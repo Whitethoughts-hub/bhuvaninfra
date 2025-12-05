@@ -23,7 +23,7 @@ const ScrollToTop = () => {
         <button
           onClick={scrollToTop}
           className="fixed z-[1000] bottom-4 md:bottom-16 right-4 md:right-6
-  flex items-center justify-center w-11 h-11 rounded-full gradient text-white text-[20px]
+  flex items-center justify-center w-11 h-11 rounded-full footer-background text-white text-[20px]
   shadow-md md:shadow-lg transition-all duration-300"
           aria-label="Scroll to top"
         >
