@@ -4,12 +4,14 @@ import Footer from "../components/Footer";
 import Projects from "../components/Projects";
 const Home = () => {
   return (
-    <section>
+    <>
       <Navbar />
-      <Banner />
-      <Projects />
+      <main>
+        <Banner />
+        <Projects />
+      </main>
       <Footer />
-    </section>
+    </>
   );
 };
 

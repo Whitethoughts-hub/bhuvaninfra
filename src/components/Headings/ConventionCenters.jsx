@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 
-// 🔹 Animation variants
 const container = {
   hidden: {},
   visible: {

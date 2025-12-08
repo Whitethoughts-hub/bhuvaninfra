@@ -1,10 +1,8 @@
-import SampleImage from "../assets/about.jpg"; // replace with your image path
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
 import { motion } from "framer-motion";
 import FounderProfile from "../assets/FounderProfile.jpg";
+import Footer from "../components/Footer";
+import Navbar from "../components/Navbar";
 const AboutUs = () => {
-  // Left and Right fade animation variants
   const leftFade = {
     hidden: { opacity: 0, x: -50 },
     visible: {
@@ -23,21 +21,6 @@ const AboutUs = () => {
     },
   };
 
-  // Philosophy list container and child animation
-  const listContainer = {
-    hidden: {},
-    visible: { transition: { staggerChildren: 0.2 } },
-  };
-
-  const listItem = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6, ease: "easeOut" },
-    },
-  };
-
   return (
     <div className="min-h-screen flex flex-col justify-between">
       <Navbar />
@@ -53,7 +36,6 @@ const AboutUs = () => {
               About Us
             </motion.h2>
 
-            {/* Paragraph */}
             <motion.p
               className="text-left w-full md:w-[60%]"
               variants={leftFade}
@@ -72,9 +54,7 @@ const AboutUs = () => {
             </motion.p>
           </div>
 
-          {/* Second Split Section */}
           <div className="max-w-[1300px] px-[20px] md:px-[40px] py-[50px] md:py-[100px] w-full flex flex-col md:flex-row items-start gap-[30px]">
-            {/* Left Side Text */}
             <motion.div
               className="w-full md:w-[60%] text-left"
               variants={leftFade}
@@ -97,7 +77,6 @@ const AboutUs = () => {
               </p>
             </motion.div>
 
-            {/* Right Side Image */}
             <motion.div
               className="w-full md:w-[40%] flex justify-center md:justify-end"
               variants={rightFade}
@@ -117,7 +96,6 @@ const AboutUs = () => {
 
         <div className="w-full flex flex-col items-center justify-center">
           <div className="w-full max-w-[1300px] px-[20px] md:px-[40px] pb-[50px] md:pb-[100px] flex flex-col">
-            {/* Heading */}
             <motion.h2
               className="text-left gradient-text-color pb-[10px]"
               initial={{ opacity: 0, x: -50 }}
@@ -128,7 +106,6 @@ const AboutUs = () => {
               Our Philosophy
             </motion.h2>
 
-            {/* First Row */}
             <div className="w-full flex pl-[20px] justify-between items-center flex-wrap gap-y-[15px] md:gap-y-[20px] md:pt-[50px]">
               <motion.li
                 className="w-full md:w-[20%] text-[16px]"
@@ -167,7 +144,6 @@ const AboutUs = () => {
               />
             </div>
 
-            {/* Second Row */}
             <div className="w-full flex pl-[20px] justify-between items-center flex-wrap gap-y-[15px] md:gap-y-[20px] pt-[15px] md:pt-[20px] md:pt-[30px]">
               <motion.li
                 className="w-full md:w-[20%] text-[16px]"

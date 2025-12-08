@@ -7,7 +7,6 @@ const ContactUs = () => {
     <div className="min-h-screen flex flex-col">
       <Navbar />
 
-      {/* Main Scroll Content */}
       <main className="flex-1">
         <Contact />
       </main>

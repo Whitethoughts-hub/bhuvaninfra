@@ -5,9 +5,6 @@ import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
 const Banner = () => {
-  const text = "Enquire Now";
-
-  // State to check if animation already ran
   const [alreadyAnimated, setAlreadyAnimated] = useState(false);
 
   useEffect(() => {
@@ -19,7 +16,6 @@ const Banner = () => {
     }
   }, []);
 
-  // Heading line animation
   const headingVariant = {
     hidden: { opacity: 0, y: alreadyAnimated ? 0 : 20 },
     visible: (i = 1) => ({
@@ -46,7 +42,7 @@ const Banner = () => {
     hidden: {},
     visible: {
       transition: {
-        staggerChildren: 0.3, // delay between each child
+        staggerChildren: 0.3,
       },
     },
   };
@@ -56,7 +52,7 @@ const Banner = () => {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: "easeOut" }, // faster for smooth feel
+      transition: { duration: 0.6, ease: "easeOut" },
     },
   };
 
@@ -73,7 +69,6 @@ const Banner = () => {
       >
         <div className="w-full max-w-[1300px] px-[20px] md:px-[40px] mx-auto">
           <div className="flex flex-col justify-center h-full text-white items-center md:items-start text-center md:text-left md:w-1/2">
-            {/* Heading */}
             {["Strong Planning.", "Steady Vision.", "Lasting Value."].map(
               (line, idx) => (
                 <motion.h2
@@ -89,7 +84,6 @@ const Banner = () => {
               )
             )}
 
-            {/* Enquire Now Button */}
             <Link
               to="/contact-us"
               className="mt-[20px] inline-block gradient text-white px-6 py-2 relative overflow-hidden"
@@ -98,7 +92,7 @@ const Banner = () => {
                 className="flex justify-center items-center text-[16px] cursor-pointer"
                 initial="hidden"
                 animate="visible"
-                whileTap={{ scale: 0.95 }} // <-- CLICK EFFECT
+                whileTap={{ scale: 0.95 }}
                 variants={{
                   visible: {
                     transition: {
@@ -147,7 +141,7 @@ const Banner = () => {
         </div>
       </section>
 
-      <div
+      <section
         className="w-full flex justify-center items-center bg-[#E5EED8]"
         style={{
           height: "calc(100vh - 70px)",
@@ -157,7 +151,6 @@ const Banner = () => {
         }}
       >
         <div className="w-full max-w-[1300px] flex justify-center px-[20px] md:px-[40px]">
-          {/* PARENT — controls stagger on scroll */}
           <motion.div
             className="w-full md:w-[70%] text-center"
             variants={parentVariant}
@@ -165,7 +158,6 @@ const Banner = () => {
             whileInView="visible"
             viewport={{ once: true, amount: 0.4 }}
           >
-            {/* CHILD 1 — Heading */}
             <motion.h2
               className="leading-11 mb-[25px] gradient-text-color"
               variants={itemVariant}
@@ -174,7 +166,6 @@ const Banner = () => {
               <br className="hidden md:block" /> Rooted in Responsibility
             </motion.h2>
 
-            {/* CHILD 2 — Paragraph */}
             <motion.p variants={itemVariant}>
               At Bhuvan Infra, we shape land into planned plot communities
               defined by quality, structure and long-term potential. Our layouts
@@ -184,7 +175,6 @@ const Banner = () => {
               will invest, build and grow within these spaces.
             </motion.p>
 
-            {/* CHILD 3 — Button */}
             <motion.div variants={itemVariant}>
               <Link
                 to="/about"
@@ -198,7 +188,7 @@ const Banner = () => {
             </motion.div>
           </motion.div>
         </div>
-      </div>
+      </section>
     </>
   );
 };

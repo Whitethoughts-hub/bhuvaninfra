@@ -1,7 +1,5 @@
-import React from "react";
 import { motion } from "framer-motion";
 
-// STAGGER CONTAINER
 const container = {
   hidden: {},
   visible: {
@@ -9,7 +7,6 @@ const container = {
   },
 };
 
-// CHILD ANIMATION
 const child = {
   hidden: { opacity: 0, x: -50 },
   visible: {
@@ -71,12 +68,10 @@ const SplitTextSection = () => {
         items-center md:items-start
       "
     >
-      {/* LEFT */}
       <div className="w-full md:w-[25%] lg:w-[20%] flex flex-col justify-center items-center md:items-start">
         <StaggeredText />
       </div>
 
-      {/* RIGHT */}
       <motion.div
         initial={{ opacity: 0, x: 60 }}
         whileInView={{ opacity: 1, x: 0 }}

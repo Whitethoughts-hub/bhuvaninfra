@@ -8,46 +8,63 @@ const ContactForm = () => {
     email: "",
     mobile: "",
     message: "",
-    fullPhoneNumber: "+91xxxx",
   });
 
   const [selectedCountry, setSelectedCountry] = useState("in");
   const [countryCode, setCountryCode] = useState("+91");
-
   const [errors, setErrors] = useState({});
 
-  const nameRegex = /^[A-Za-z.\s]*$/;
+  const nameRegex = /^[A-Za-z.\s]+$/;
   const emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
   const urlRegex = /(https?:\/\/[^\s]+)/gi;
+
+  const validatePhone = () => {
+    const mobile = formData.mobile;
+
+    if (selectedCountry === "in") {
+      const indianRegex = /^[6-9]\d{9}$/;
+      return indianRegex.test(mobile);
+    }
+
+    return mobile.length > 0;
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleCountryChange = (country, countryData) => {
-    setSelectedCountry(country);
+  const handleCountryChange = (countryCodeValue, countryData) => {
+    setSelectedCountry(countryData.countryCode);
     setCountryCode(`+${countryData.dialCode}`);
+    setFormData({ ...formData, mobile: "" });
   };
 
   const validate = () => {
     let newErrors = {};
 
-    if (!formData.name || !nameRegex.test(formData.name))
+    if (!formData.name || !nameRegex.test(formData.name)) {
       newErrors.name = "Please enter a valid name.";
+    }
 
-    if (!formData.email || !emailRegex.test(formData.email))
+    if (!formData.email || !emailRegex.test(formData.email)) {
       newErrors.email = "Please enter a valid email.";
+    }
 
-    if (!formData.mobile || formData.mobile.replace(/\D/g, "").length < 7)
-      newErrors.mobile = "Enter a valid phone number.";
+    if (!formData.mobile || !validatePhone()) {
+      newErrors.mobile =
+        selectedCountry === "in"
+          ? "Enter valid Indian number (starts with 6/7/8/9 and 10 digits)."
+          : "Enter a valid phone number.";
+    }
 
     if (
       !formData.message ||
       formData.message.length > 150 ||
       urlRegex.test(formData.message)
-    )
+    ) {
       newErrors.message = "Invalid message (no URLs, max 150 chars).";
+    }
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -58,16 +75,15 @@ const ContactForm = () => {
     if (!validate()) return;
 
     const payload = {
-      ...formData,
+      name: formData.name,
+      email: formData.email,
+      mobile: formData.mobile,
+      message: formData.message,
       fullPhoneNumber: `${countryCode}${formData.mobile}`,
     };
-
-    // 1️⃣ PRINT OBJECT TO CONSOLE
-    console.log("Form Submitted:", payload);
-
-    // 2️⃣ SEND API REQUEST
+    console.log(payload);
     try {
-      const response = await fetch("https://your-backend-url.com/api/contact", {
+      const response = await fetch("https://your-api-endpoint.com/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -75,30 +91,28 @@ const ContactForm = () => {
         body: JSON.stringify(payload),
       });
 
-      // If backend returns JSON
-      const result = await response.json();
-      console.log("Server Response:", result);
-
       if (!response.ok) {
-        throw new Error(result.message || "Something went wrong");
+        throw new Error(`Server error: ${response.status}`);
       }
 
-      alert("Message sent successfully!");
+      const data = await response.json();
+      console.log("API Response:", data);
 
-      // 3️⃣ RESET FORM
       setFormData({ name: "", email: "", mobile: "", message: "" });
       setSelectedCountry("in");
       setCountryCode("+91");
       setErrors({});
     } catch (error) {
-      console.error("API Error:", error);
-      alert("Failed to send message. Please try again.");
+      console.error("Submission failed:", error);
+      alert("Failed to submit the form. Please try again.");
     }
   };
 
   return (
     <div className="bg-[#FAFAFA] h-full w-full px-4 md:px-8 py-6 md:py-10 rounded-xl flex flex-col items-start justify-center">
-      <h2 className="gradient-text-color text-left pb-[10px]">Get In Touch</h2>
+      <h2 className="gradient-text-color text-left text-[32px] pb-[10px]">
+        Get In Touch
+      </h2>
 
       <div className="w-full max-w-[480px]">
         <form
@@ -124,18 +138,18 @@ const ContactForm = () => {
                 box-shadow: none;
               }
               .error-container {
-                height: 18px; /* fixed height to avoid layout shift */
+                height: 18px;
                 display: flex;
                 justify-content: flex-start;
                 align-items: center;
               }
               .error-text {
-                 background: -webkit-linear-gradient(#d11b23, #820a10);
-                 -webkit-background-clip: text;
-                 -webkit-text-fill-color: transparent;
-                 font-size: 10px !important;
-                 text-align: left;
-                 visibility: visible;
+                background: -webkit-linear-gradient(#d11b23, #820a10);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                font-size: 10px !important;
+                text-align: left;
+                visibility: visible;
               }
               .error-hidden {
                 visibility: hidden;
@@ -143,7 +157,6 @@ const ContactForm = () => {
             `}
           </style>
 
-          {/* Full Name */}
           <input
             type="text"
             name="name"
@@ -160,7 +173,6 @@ const ContactForm = () => {
             </p>
           </div>
 
-          {/* Email */}
           <input
             type="email"
             name="email"
@@ -179,53 +191,39 @@ const ContactForm = () => {
             </p>
           </div>
 
-          {/* Phone Number */}
           <div className="w-full border-b border-gray-300 flex items-center gap-3 relative">
-            {/* Country Flag Selector */}
-            <div className="flex items-center">
-              <PhoneInput
-                country={selectedCountry}
-                value=""
-                onChange={(value, country) =>
-                  handleCountryChange(country.countryCode, country)
-                }
-                inputStyle={{
-                  display: "none",
-                }}
-                buttonStyle={{
-                  border: "none",
-                  backgroundColor: "transparent",
-                  padding: "4px 8px",
-                  borderRadius: "4px",
-                }}
-                containerStyle={{ width: "auto" }}
-                dropdownStyle={{ zIndex: 1000 }}
-              />
-            </div>
-
-            {/* Country Code Display */}
-            <span className="text-gray-700 font-semibold text-base ml-8 mt-[5px] ">
+            <PhoneInput
+              country={selectedCountry}
+              value=""
+              onChange={(value, country) =>
+                handleCountryChange(country.countryCode, country)
+              }
+              inputStyle={{ display: "none" }}
+              buttonStyle={{
+                border: "none",
+                backgroundColor: "transparent",
+                paddingRight: "10px",
+              }}
+              containerStyle={{ width: "auto" }}
+              dropdownStyle={{ zIndex: 1000 }}
+            />
+            <span className="text-gray-700 font-semibold text-base ml-6 ">
               {countryCode}
             </span>
-
-            {/* Separator */}
             <div className="h-6 w-px bg-gray-300"></div>
-
-            {/* Phone Number Input */}
             <input
               type="tel"
               name="mobile"
               value={formData.mobile}
-              onChange={(e) => {
-                const value = e.target.value.replace(/\D/g, "");
-                setFormData({ ...formData, mobile: value });
-              }}
+              onChange={(e) =>
+                setFormData({
+                  ...formData,
+                  mobile: e.target.value.replace(/\D/g, ""),
+                })
+              }
               placeholder="Phone Number*"
-              maxLength="10"
               className="flex-1 border-none outline-none bg-transparent text-left transition-colors"
             />
-
-            {/* Error Message */}
             <div className="absolute left-0 bottom-[-18px] w-full">
               <p
                 className={
@@ -237,7 +235,6 @@ const ContactForm = () => {
             </div>
           </div>
 
-          {/* Message */}
           <textarea
             name="message"
             value={formData.message}
@@ -256,7 +253,6 @@ const ContactForm = () => {
             </p>
           </div>
 
-          {/* Submit */}
           <button
             className=" px-8 rounded-3xl py-1 bg-white border border-[#506C64] hover-gradient hover:text-white transition-all duration-300 mt-[10px]"
             type="submit"
@@ -265,7 +261,7 @@ const ContactForm = () => {
           </button>
         </form>
 
-        <p className="text-center color-red pt-[15px] error-text">
+        <p className="font-size-14 pt-[15px]">
           Note: We keep your information strictly confidential and we don’t spam
           your email.
         </p>

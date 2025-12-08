@@ -2,7 +2,6 @@ import ContactForm from "./Form";
 import { motion } from "framer-motion";
 
 const Contact = () => {
-  // Parent variant for stagger
   const containerVariant = {
     hidden: {},
     visible: {
@@ -12,7 +11,6 @@ const Contact = () => {
     },
   };
 
-  // Child variant for slide-up animation
   const itemVariant = {
     hidden: { opacity: 0, y: 30 },
     visible: {
@@ -24,8 +22,6 @@ const Contact = () => {
 
   return (
     <>
-      {/* -------------------- NEW CONTACT HEADING SECTION -------------------- */}
-      {/* -------------------- NEW CONTACT HEADING SECTION -------------------- */}
       <section className="w-full flex justify-center bg-white">
         <motion.div
           className="w-full max-w-[1300px] px-[20px] md:px-[40px] pt-[50px] md:pt-[70px] flex flex-col items-start"
@@ -59,7 +55,6 @@ const Contact = () => {
         </motion.div>
       </section>
 
-      {/* ------------------------- MAIN CONTACT SECTION ------------------------- */}
       <section className="w-full flex justify-center bg-white">
         <motion.div
           className="w-full max-w-[1300px] px-[20px] md:px-[40px] pt-[15px] md:pt-[100px] pb-[50px] md:pb-[100px] flex flex-col md:flex-row gap-[25px]"
@@ -68,11 +63,7 @@ const Contact = () => {
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
         >
-          {/* LEFT SIDE */}
           <div className="w-full md:w-[60%] flex flex-col justify-between gap-[15px]">
-            {/* PHONE */}
-
-            {/* EMAIL */}
             <motion.div variants={itemVariant}>
               <a href="tel:+91 40 2311 8484">
                 <h3 className="gradient-text-color inline-block cursor-pointer font-size-cus">
@@ -87,10 +78,9 @@ const Contact = () => {
               </a>
             </motion.div>
 
-            {/* MAP */}
             <motion.div
               variants={itemVariant}
-              className="w-full flex justify-start" // align left
+              className="w-full flex justify-start"
             >
               <div className="w-full md:w-4/5">
                 <iframe
@@ -102,21 +92,23 @@ const Contact = () => {
                 ></iframe>
               </div>
             </motion.div>
-            {/* CIN */}
+
             <div>
               <motion.h3
                 initial="hidden"
                 whileInView="visible"
                 className="text-[16px] gradient-text-color"
                 variants={itemVariant}
+                viewport={{ once: true }}
               >
                 Address
               </motion.h3>
-              {/* ADDRESS */}
+
               <motion.p
                 variants={itemVariant}
                 initial="hidden"
                 whileInView="visible"
+                viewport={{ once: true }}
               >
                 Vaishnavi's Cymbol, 1A, First Floor,
                 <br className="hidden sm:block" />
@@ -126,7 +118,7 @@ const Contact = () => {
               </motion.p>
             </div>
           </div>
-          {/* RIGHT SIDE - FORM */}
+
           <motion.div
             className="w-full md:w-[50%] flex justify-end items-start md:items-end"
             variants={itemVariant}

@@ -2,8 +2,8 @@ import { FaFacebookF, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <div className="w-full flex justify-center footer-background">
-      <footer
+    <footer className="w-full flex justify-center footer-background">
+      <div
         className="
           w-full max-w-[1300px] text-white 
           flex flex-col md:flex-row 
@@ -21,7 +21,6 @@ const Footer = () => {
           </a>
         </p>
         <div className="flex gap-4 text-[16px]">
-          {/* FACEBOOK */}
           <a
             href="https://www.facebook.com/profile.php?id=61584428188508"
             aria-label="Facebook"
@@ -34,7 +33,6 @@ const Footer = () => {
             <FaFacebookF className="transition-transform duration-300 hover:scale-125" />
           </a>
 
-          {/* INSTAGRAM */}
           <a
             href="https://www.instagram.com/bhuvan_infra/"
             aria-label="Instagram"
@@ -47,7 +45,6 @@ const Footer = () => {
             <FaInstagram className="transition-transform duration-300 hover:scale-125" />
           </a>
 
-          {/* LINKEDIN */}
           <a
             href="#"
             aria-label="LinkedIn"
@@ -59,8 +56,8 @@ const Footer = () => {
             <FaLinkedinIn className="transition-transform duration-300 hover:scale-125" />
           </a>
         </div>
-      </footer>
-    </div>
+      </div>
+    </footer>
   );
 };
 

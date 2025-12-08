@@ -20,12 +20,10 @@ const Navbar = () => {
         }`}
       >
         <div className="w-full max-w-[1300px] mx-auto h-full flex items-center justify-between px-[20px] md:px-[40px]">
-          {/* LOGO */}
           <NavLink to="/" onClick={() => setIsOpen(false)}>
             <img src={Logo} alt="logo" className="h-10" />
           </NavLink>
 
-          {/* DESKTOP LINKS */}
           <div className="hidden md:flex gap-6 text-black">
             {[
               { name: "HOME", path: "/" },
@@ -42,7 +40,6 @@ const Navbar = () => {
             ))}
           </div>
 
-          {/* MOBILE HAMBURGER */}
           <button
             className="md:hidden flex flex-col justify-center items-center w-6 h-8 gap-1"
             onClick={() => setIsOpen(!isOpen)}
@@ -64,7 +61,6 @@ const Navbar = () => {
             />
           </button>
         </div>
-        {/* MOBILE MENU */}
         <div
           className={`md:hidden fixed top-[70px] left-0 w-full bg-white z-40 overflow-hidden text-black
     ${isOpen ? "animate-menuDrop shadow-xl" : "max-h-0 opacity-0"}
@@ -91,7 +87,6 @@ const Navbar = () => {
         </div>
       </nav>
 
-      {/* SPACE FOR FIXED NAV */}
       <div style={{ height: "70px" }} />
     </>
   );
