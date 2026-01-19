@@ -29,30 +29,27 @@ const StaggeredText = () => {
         inline-grid 
         grid-cols-[max-content_max-content] 
         grid-rows-2 
-        leading-10
-        w-fit
-        mx-auto md:mx-0
-      "
+        w-fit"
     >
       <motion.span
         variants={child}
         className="heading-text gradient-text-color col-start-1 row-start-1"
       >
-        Grand E
+        Expans
       </motion.span>
 
       <motion.span
         variants={child}
         className="heading-text gradient-text-color col-start-2 row-start-1"
       >
-        ntry
+        ive
       </motion.span>
 
       <motion.span
         variants={child}
-        className="heading-text col-start-2 row-start-2 "
+        className="heading-text col-start-2 row-start-2 -mt-1"
       >
-        And Exit
+        Clubhouse
       </motion.span>
     </motion.div>
   );
@@ -62,34 +59,33 @@ const SplitTextSection = () => {
   return (
     <section
       className="
-        overflow-hidden
-        w-full flex flex-col md:flex-row 
+        w-full flex flex-col lg:flex-row 
         max-w-[1300px] mx-auto 
         px-[20px] md:px-[40px] py-[50px] md:pt-[100px]
-        gap-[50px] md:gap-20
+        gap-[30px] lg:gap-20
         justify-center md:justify-between
         items-center md:items-start
       "
     >
-      {/* LEFT */}
-      <div className="w-full md:w-[25%] lg:w-[20%] flex flex-col justify-center items-center md:items-start">
+      <div className="w-full md:w-[100%] lg:w-[20%] flex flex-col justify-center items-center md:items-start">
         <StaggeredText />
       </div>
 
-      {/* RIGHT */}
       <motion.div
-        className="w-full md:w-[70%] overflow-hidden"
+        className="w-full lg:w-[70%] overflow-hidden"
         initial={{ opacity: 0, x: 60 }}
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.9, ease: "easeOut" }}
         viewport={{ once: true, amount: 0.3 }}
       >
-        <p className="text-center md:text-left">
-          A grand entry and exit zone that creates a strong first impression
-          with its spacious avenues, refined landscaping and clean architectural
-          presence. The arrival experience reflects the scale and quality of the
-          community, offering smooth movement, clear visibility and a sense of
-          exclusivity from the moment you enter.
+        <p className="text-left">
+          At the heart of Harmony Woods stands an expansive 30,000 sq. ft.
+          clubhouse crafted as the social and recreational hub of the community.
+          Designed as a refined retreat for wellness, leisure and gatherings, it
+          includes spaces for fitness, indoor and outdoor activities,
+          celebrations and moments of calm. The clubhouse elevates daily living
+          with its blend of function, comfort and understated luxury, offering
+          residents a well-rounded lifestyle within their own neighbourhood.
         </p>
       </motion.div>
     </section>

@@ -14,12 +14,13 @@ const ContactForm = () => {
   const [countryCode, setCountryCode] = useState("+91");
   const [errors, setErrors] = useState({});
 
-  const nameRegex = /^[A-Za-z.\s]+$/;
+  const nameRegex = /^[A-Za-z0-9.\s]+$/;
+
   const emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
   const urlRegex = /(https?:\/\/[^\s]+)/gi;
 
-  const validatePhone = () => {
-    const mobile = formData.mobile;
+  const validatePhone = (mobileValue) => {
+    const mobile = mobileValue || "";
 
     if (selectedCountry === "in") {
       const indianRegex = /^[6-9]\d{9}$/;
@@ -29,40 +30,100 @@ const ContactForm = () => {
     return mobile.length > 0;
   };
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
-
   const handleCountryChange = (countryCodeValue, countryData) => {
     setSelectedCountry(countryData.countryCode);
     setCountryCode(`+${countryData.dialCode}`);
-    setFormData({ ...formData, mobile: "" });
+
+    setFormData((prev) => ({
+      ...prev,
+      mobile: "",
+    }));
+
+    setErrors((prev) => ({
+      ...prev,
+      mobile: "",
+    }));
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+
+    setErrors((prev) => {
+      let newErrors = { ...prev };
+
+      if (name === "name") {
+        if (!value.trim()) {
+          newErrors.name = "Please enter your full name.";
+        } else if (!nameRegex.test(value)) {
+          newErrors.name = "Only letters, numbers, spaces and '.' are allowed.";
+        } else {
+          newErrors.name = "";
+        }
+      }
+
+      if (name === "email") {
+        if (!value.trim()) {
+          newErrors.email = "Please enter a valid email.";
+        } else if (!emailRegex.test(value)) {
+          newErrors.email = "Please enter a valid email.";
+        } else {
+          newErrors.email = "";
+        }
+      }
+
+      if (name === "message") {
+        if (!value.trim()) {
+          newErrors.message = "Message is required.";
+        } else if (value.length > 150) {
+          newErrors.message = "Message must be max 150 characters.";
+        } else if (urlRegex.test(value)) {
+          newErrors.message = "Invalid message (no URLs allowed).";
+        } else {
+          newErrors.message = "";
+        }
+      }
+
+      return newErrors;
+    });
   };
 
   const validate = () => {
     let newErrors = {};
 
-    if (!formData.name || !nameRegex.test(formData.name)) {
-      newErrors.name = "Please enter a valid name.";
+    if (!formData.name.trim()) {
+      newErrors.name = "Please enter your full name.";
+    } else if (!nameRegex.test(formData.name.trim())) {
+      newErrors.name = "Only letters, numbers, spaces and '.' are allowed.";
     }
 
-    if (!formData.email || !emailRegex.test(formData.email)) {
+    if (!formData.email.trim()) {
+      newErrors.email = "Please enter a valid email.";
+    } else if (!emailRegex.test(formData.email.trim())) {
       newErrors.email = "Please enter a valid email.";
     }
 
-    if (!formData.mobile || !validatePhone()) {
+    if (!formData.mobile.trim()) {
       newErrors.mobile =
         selectedCountry === "in"
-          ? "Enter valid Indian number (starts with 6/7/8/9 and 10 digits)."
+          ? "Enter a valid Indian phone number."
+          : "Enter a valid phone number.";
+    } else if (!validatePhone(formData.mobile.trim())) {
+      newErrors.mobile =
+        selectedCountry === "in"
+          ? "Enter a valid Indian phone number."
           : "Enter a valid phone number.";
     }
 
-    if (
-      !formData.message ||
-      formData.message.length > 150 ||
-      urlRegex.test(formData.message)
-    ) {
+    if (!formData.message.trim()) {
+      newErrors.message = "Message is required.";
+    } else if (formData.message.length > 150) {
+      newErrors.message = "Message must be max 150 characters.";
+    } else if (urlRegex.test(formData.message)) {
       newErrors.message = "Invalid message (no URLs, max 150 chars).";
     }
 
@@ -75,13 +136,15 @@ const ContactForm = () => {
     if (!validate()) return;
 
     const payload = {
-      name: formData.name,
-      email: formData.email,
-      mobile: formData.mobile,
-      message: formData.message,
-      fullPhoneNumber: `${countryCode}${formData.mobile}`,
+      name: formData.name.trim(),
+      email: formData.email.trim(),
+      mobile: formData.mobile.trim(),
+      message: formData.message.trim(),
+      fullPhoneNumber: `${countryCode}${formData.mobile.trim()}`,
     };
+
     console.log(payload);
+
     try {
       const response = await fetch("https://your-api-endpoint.com/contact", {
         method: "POST",
@@ -161,10 +224,30 @@ const ContactForm = () => {
             type="text"
             name="name"
             value={formData.name}
-            onChange={handleChange}
+            onChange={(e) => {
+              const { value } = e.target;
+
+              const cleanedValue = value.replace(/[^A-Za-z.\s]/g, "");
+
+              setFormData((prev) => ({
+                ...prev,
+                name: cleanedValue,
+              }));
+
+              setErrors((prev) => ({
+                ...prev,
+                name:
+                  cleanedValue.trim() === ""
+                    ? "Please enter your full name."
+                    : cleanedValue !== value
+                      ? "Only letters, spaces and '.' are allowed."
+                      : "",
+              }));
+            }}
             className="form-input text-left"
             placeholder="Full Name*"
           />
+
           <div className="error-container">
             <p
               className={errors.name ? "error-text" : "error-text error-hidden"}
@@ -215,12 +298,38 @@ const ContactForm = () => {
               type="tel"
               name="mobile"
               value={formData.mobile}
-              onChange={(e) =>
-                setFormData({
-                  ...formData,
-                  mobile: e.target.value.replace(/\D/g, ""),
-                })
-              }
+              onChange={(e) => {
+                let onlyNumbers = e.target.value.replace(/\D/g, "");
+
+                if (selectedCountry === "in") {
+                  onlyNumbers = onlyNumbers.slice(0, 10);
+                }
+
+                setFormData((prev) => ({
+                  ...prev,
+                  mobile: onlyNumbers,
+                }));
+
+                setErrors((prev) => {
+                  let newErrors = { ...prev };
+
+                  if (!onlyNumbers.trim()) {
+                    newErrors.mobile =
+                      selectedCountry === "in"
+                        ? "Enter a valid Indian phone number"
+                        : "Enter a valid phone number.";
+                  } else if (!validatePhone(onlyNumbers)) {
+                    newErrors.mobile =
+                      selectedCountry === "in"
+                        ? "Enter a valid Indian phone number"
+                        : "Enter a valid phone number.";
+                  } else {
+                    newErrors.mobile = "";
+                  }
+
+                  return newErrors;
+                });
+              }}
               placeholder="Phone Number*"
               className="flex-1 border-none outline-none bg-transparent text-left transition-colors"
             />
@@ -254,7 +363,7 @@ const ContactForm = () => {
           </div>
 
           <button
-            className=" px-8 rounded-3xl py-1 bg-white border border-[#506C64] hover-gradient hover:text-white transition-all duration-300 mt-[10px]"
+            className=" px-8 rounded-3xl py-1 bg-white border border-[#506C64] hover-gradient active:text-white hover:text-white transition-all duration-300 mt-[10px]"
             type="submit"
           >
             Submit

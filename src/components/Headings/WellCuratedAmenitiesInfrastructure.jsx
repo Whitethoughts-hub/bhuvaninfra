@@ -3,7 +3,9 @@ import { motion } from "framer-motion";
 const container = {
   hidden: {},
   visible: {
-    transition: { staggerChildren: 0.25 },
+    transition: {
+      staggerChildren: 0.25,
+    },
   },
 };
 
@@ -27,68 +29,72 @@ const StaggeredText = () => {
         inline-grid 
         grid-cols-[max-content_max-content] 
         grid-rows-2 
-        leading-10
-        w-fit
-        mx-auto md:mx-0
-      "
+        w-fit"
     >
       <motion.span
         variants={child}
         className="heading-text gradient-text-color col-start-1 row-start-1"
       >
-        Premi
+        Well-Cur
       </motion.span>
 
       <motion.span
         variants={child}
         className="heading-text gradient-text-color col-start-2 row-start-1"
       >
-        um
+        ated Amenities
       </motion.span>
 
       <motion.span
         variants={child}
-        className="heading-text col-start-2 row-start-2"
+        className="heading-text col-start-2 row-start-2 "
       >
-        Villa Plots
+         & Infrastructure
       </motion.span>
     </motion.div>
   );
 };
 
-const SplitTextSection = () => {
+const WellCuratedAmenitiesInfrastructure = () => {
   return (
     <section
       className="
-        w-full flex flex-col md:flex-row 
+        overflow-hidden
+        w-full flex flex-col lg:flex-row 
         max-w-[1300px] mx-auto 
         px-[20px] md:px-[40px] py-[50px] md:pt-[100px]
-        gap-[50px] md:gap-20
+        gap-[30px] lg:gap-20
         justify-center md:justify-between
         items-center md:items-start
       "
     >
-      <div className="w-full md:w-[25%] lg:w-[20%] flex flex-col justify-center items-center md:items-start">
+  
+      <div className="w-full lg:w-[25%] lg:w-[20%] flex flex-col justify-center items-center md:items-start">
         <StaggeredText />
       </div>
 
+ 
       <motion.div
+        className="w-full lg:w-[70%] overflow-hidden"
         initial={{ opacity: 0, x: 60 }}
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.9, ease: "easeOut" }}
         viewport={{ once: true, amount: 0.3 }}
-        className="w-full md:w-[70%] overflow-hidden flex flex-col justify-center items-center md:items-start"
       >
-        <p className="text-center md:text-left">
-          Villa plots are designed with generous widths, wide internal roads,
-          well-planned utilities and clear land demarcation. Each plot offers
-          the freedom to build a home that matches your vision while enjoying a
-          layout shaped for privacy, comfort and long-term value within a
-          well-organised community.
+        <p className="text-left">
+          The project is built on a foundation of strong infrastructure, with
+          grade-levelled CC roads, landscaped boulevards, underground utilities
+          and tree-lined pathways that ensure smooth movement and a clean,
+          clutter-free environment. Its themed gardens, open-air zones and
+          nature-framed walkways create spaces for leisure, reflection and
+          everyday living, while curated activity areas support all ages and
+          routines. Harmony Woods brings together landscape, planning, and
+          well-curated amenities to offer a complete lifestyle experience within
+          a self-sustained community.
         </p>
       </motion.div>
     </section>
   );
 };
 
-export default SplitTextSection;
+export default WellCuratedAmenitiesInfrastructure;

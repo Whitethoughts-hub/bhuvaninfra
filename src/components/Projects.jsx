@@ -1,13 +1,14 @@
 import Heading from "./Heading";
-import ResidentialVillas from "../assets/residential-villas.jpg";
-import GrandEntryImage from "../assets/entryandexit.jpg";
-import PremiusCloubhouse from "../assets/premiumclubhouse.jpg";
-import About from "../assets/about.jpg";
-import ResdentialVillas from "../components/Headings/ResdentialVillas";
-import FarmHouses from "../components/Headings/FarmHouses";
-import ConventionCenters from "../components/Headings/ConventionCenters";
+import PremiumVillaPlotsImg from "../assets/Projects/premium_villa_plot.webp";
+import WellCuratedAmenitiesInfrastructureImg from "../assets/Projects/well_structure.webp";
+import PremiusCloubhouse from "../assets/Projects/club_house.webp";
+import PremiumVillaPlots from "./Headings/PremiumVillaPlots";
+import WellCuratedAmenitiesInfrastructure from "./Headings/WellCuratedAmenitiesInfrastructure";
+import ExpansiveClubhouse from "./Headings/ExpansiveClubhouse";
 import { motion } from "framer-motion";
-import PlotImage from "../assets/Plot-image.png";
+import PlotImage from "../assets/Plot-image.webp";
+import FutureReadyLocale from "./Headings/FutureReadyLocale";
+import FutureReadyLocaleImg from "../assets/Projects/future_ready_locale.webp";
 const Projects = () => {
   const listContainer = {
     hidden: {},
@@ -29,33 +30,44 @@ const Projects = () => {
       <h2 className="text-center gradient-text-color w-full">
         Project Highlights
       </h2>
+      <h2 className="w-full text-center custom-font-size">Harmony Woods</h2>
 
-      <ResdentialVillas />
+      <PremiumVillaPlots />
       <div className="max-w-[1300px] w-full overflow-hidden px-[20px] md:px-[40px]">
         <img
-          src={ResidentialVillas}
-          alt="Sample"
+          src={PremiumVillaPlotsImg}
+          alt="PremiumVillaPlotsImg"
           className="w-full h-full object-cover"
         />
       </div>
 
-      <FarmHouses />
+      <WellCuratedAmenitiesInfrastructure />
       <div className="max-w-[1300px] w-full overflow-hidden px-[20px] md:px-[40px]">
         <img
-          src={GrandEntryImage}
+          src={WellCuratedAmenitiesInfrastructureImg}
           alt="Sample"
           className="w-full h-full object-cover"
         />
       </div>
-      <ConventionCenters />
-
-      <div className="max-w-[1300px] w-full overflow-hidden px-[20px] md:px-[40px] pb-[50px] md:pb-[100px]">
+      <ExpansiveClubhouse />
+      <div className="max-w-[1300px] w-full overflow-hidden px-[20px] md:px-[40px]">
         <img
           src={PremiusCloubhouse}
           alt="Sample"
           className="w-full h-full object-cover"
         />
       </div>
+      <FutureReadyLocale />
+
+      <div className="max-w-[1300px] w-full overflow-hidden px-[20px] md:px-[40px] pb-[50px] md:pb-[100px]">
+        <img
+          src={FutureReadyLocaleImg}
+          alt="Sample"
+          className="w-full h-full object-cover"
+        />
+      </div>
+      
+      
       <div className="w-full flex justify-center pb-[50px] md:pb-[100px] bg-image">
         <div
           className="w-full max-w-[1300px] px-[20px] md:px-[40px]

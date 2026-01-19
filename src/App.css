@@ -25,24 +25,26 @@ h2 {
   background: linear-gradient(0deg, #215042 0%, #718f86 100%);
   border: 1px solid transparent;
   border-image: linear-gradient(0deg, #215042 0%, #718f86 100%);
+  color: white !important;
 }
 
 p {
   font-size: 16px !important;
   font-weight: 400;
+
 }
 .heading-text {
-  font-size: 32px;
+  font-size: 26px;
 }
 @media (max-width: 639px) {
   .heading-text {
-    font-size: 32px !important;
+    font-size: 26px !important;
   }
 }
 
-@media (min-width: 640px) and (max-width: 1023px) {
+@media (min-width: 640px) and (max-width: 1024px) {
   .heading-text {
-    font-size: 32px !important;
+    font-size: 22px !important;
   }
 }
 .active {
@@ -83,4 +85,10 @@ h4 {
 }
 .font-size-cus {
   font-size: 26px !important;
+}
+h2{
+    line-height: 40px !important;
+}
+.custom-font-size{
+  font-size: 24px !important;
 }

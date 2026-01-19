@@ -24,7 +24,7 @@ const AboutUs = () => {
   return (
     <div className="min-h-screen flex flex-col justify-between">
       <Navbar />
-      <div className="flex-1">
+      <main className="flex-1">
         <section className="w-full flex flex-col items-center justify-center bg-[white]">
           <div className="max-w-[1300px] px-[20px] md:px-[40px] pt-[50px] md:pt-[70px] flex flex-col items-start">
             <motion.h2
@@ -183,7 +183,7 @@ const AboutUs = () => {
             </div>
           </div>
         </div>
-      </div>
+      </main>
       <Footer />
     </div>
   );

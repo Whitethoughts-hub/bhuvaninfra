@@ -66,9 +66,9 @@ const Contact = () => {
           <div className="w-full md:w-[60%] flex flex-col justify-between gap-[15px]">
             <motion.div variants={itemVariant}>
               <a href="tel:+91 40 2311 8484">
-                <h3 className="gradient-text-color inline-block cursor-pointer font-size-cus">
+                {/* <h3 className="gradient-text-color inline-block cursor-pointer font-size-cus">
                   +91 XXXX XXXX XX
-                </h3>
+                </h3> */}
               </a>{" "}
               <br />
               <a href="mailto:info@bhuvaninfra.in">
@@ -85,7 +85,7 @@ const Contact = () => {
               <div className="w-full md:w-4/5">
                 <iframe
                   title="Sample Map"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d742371.5603038683!2d77.22483318545089!3d17.410173055440918!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb99daeaebd2c7%3A0xae93b78392bafbc2!2sHyderabad%2C%20Telangana!5e1!3m2!1sen!2sin!4v1764334734389!5m2!1sen!2sin"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3807.0664712825924!2d78.35107527493525!3d17.408597383482274!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb95bcaaac55d5%3A0x327148d7169ea949!2sVaishnavi%20Cymbol!5e0!3m2!1sen!2sin!4v1766387122083!5m2!1sen!2sin"
                   className="w-full h-full border-0"
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
@@ -120,7 +120,7 @@ const Contact = () => {
           </div>
 
           <motion.div
-            className="w-full md:w-[50%] flex justify-end items-start md:items-end"
+            className="w-full md:w-[50%] flex justify-end items-start md:items-end "
             variants={itemVariant}
           >
             <ContactForm />
