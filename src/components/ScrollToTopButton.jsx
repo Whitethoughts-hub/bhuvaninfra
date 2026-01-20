@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 const ScrollToTop = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -22,7 +22,7 @@ const ScrollToTop = () => {
       {isVisible && (
         <button
           onClick={scrollToTop}
-          className="fixed z-[1000] bottom-4 md:bottom-16 right-4 md:right-6
+          className="fixed z-[1000] bottom-4 md:bottom-16 right-4 md:right-6 cursor-pointer
   flex items-center justify-center w-11 h-11 rounded-full footer-background text-white text-[20px]
   shadow-md md:shadow-lg transition-all duration-300"
           aria-label="Scroll to top"

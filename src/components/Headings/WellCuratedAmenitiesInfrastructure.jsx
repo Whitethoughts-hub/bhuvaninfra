@@ -49,7 +49,7 @@ const StaggeredText = () => {
         variants={child}
         className="heading-text col-start-2 row-start-2 "
       >
-         & Infrastructure
+        & Infrastructure
       </motion.span>
     </motion.div>
   );
@@ -68,12 +68,10 @@ const WellCuratedAmenitiesInfrastructure = () => {
         items-center md:items-start
       "
     >
-  
       <div className="w-full lg:w-[25%] lg:w-[20%] flex flex-col justify-center items-center md:items-start">
         <StaggeredText />
       </div>
 
- 
       <motion.div
         className="w-full lg:w-[70%] overflow-hidden"
         initial={{ opacity: 0, x: 60 }}

@@ -223,6 +223,7 @@ const ContactForm = () => {
           <input
             type="text"
             name="name"
+            maxLength={22}
             value={formData.name}
             onChange={(e) => {
               const { value } = e.target;
@@ -263,6 +264,7 @@ const ContactForm = () => {
             onChange={handleChange}
             className="form-input"
             placeholder="Email Address*"
+            maxLength={25}
           />
           <div className="error-container">
             <p
@@ -350,6 +352,7 @@ const ContactForm = () => {
             onChange={handleChange}
             className="form-input mt-4"
             placeholder="Message / Query*"
+            maxLength={125}
             rows="2"
           ></textarea>
           <div className="error-container">

@@ -55,7 +55,7 @@ const StaggeredText = () => {
   );
 };
 
-const SplitTextSection = () => {
+const ExpansiveClubHouse = () => {
   return (
     <section
       className="
@@ -92,4 +92,4 @@ const SplitTextSection = () => {
   );
 };
 
-export default SplitTextSection;
+export default ExpansiveClubHouse;

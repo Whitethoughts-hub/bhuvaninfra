@@ -21,7 +21,7 @@ const Footer = () => {
           </a>
         </p>
         <div className="flex gap-4 text-[16px]">
-          <a
+          {/* <a
             href="https://www.facebook.com/profile.php?id=61584428188508"
             aria-label="Facebook"
             target="_blank"
@@ -54,7 +54,7 @@ const Footer = () => {
     "
           >
             <FaLinkedinIn className="transition-transform duration-300 hover:scale-125" />
-          </a>
+          </a> */}
         </div>
       </div>
     </footer>

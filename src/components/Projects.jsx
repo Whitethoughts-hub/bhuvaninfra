@@ -1,14 +1,13 @@
-import Heading from "./Heading";
-import PremiumVillaPlotsImg from "../assets/Projects/premium_villa_plot.webp";
-import WellCuratedAmenitiesInfrastructureImg from "../assets/Projects/well_structure.webp";
-import PremiusCloubhouse from "../assets/Projects/club_house.webp";
-import PremiumVillaPlots from "./Headings/PremiumVillaPlots";
-import WellCuratedAmenitiesInfrastructure from "./Headings/WellCuratedAmenitiesInfrastructure";
-import ExpansiveClubhouse from "./Headings/ExpansiveClubhouse";
 import { motion } from "framer-motion";
 import PlotImage from "../assets/Plot-image.webp";
-import FutureReadyLocale from "./Headings/FutureReadyLocale";
+import PremiusCloubhouse from "../assets/Projects/club_house.webp";
 import FutureReadyLocaleImg from "../assets/Projects/future_ready_locale.webp";
+import PremiumVillaPlotsImg from "../assets/Projects/premium_villa_plot.webp";
+import WellCuratedAmenitiesInfrastructureImg from "../assets/Projects/well_structure.webp";
+import ExpansiveClubhouse from "./Headings/ExpansiveClubhouse";
+import FutureReadyLocale from "./Headings/FutureReadyLocale";
+import PremiumVillaPlots from "./Headings/PremiumVillaPlots";
+import WellCuratedAmenitiesInfrastructure from "./Headings/WellCuratedAmenitiesInfrastructure";
 const Projects = () => {
   const listContainer = {
     hidden: {},
@@ -66,8 +65,7 @@ const Projects = () => {
           className="w-full h-full object-cover"
         />
       </div>
-      
-      
+
       <div className="w-full flex justify-center pb-[50px] md:pb-[100px] bg-image">
         <div
           className="w-full max-w-[1300px] px-[20px] md:px-[40px]

@@ -56,7 +56,7 @@ const StaggeredText = () => {
   );
 };
 
-const PremiumVillaPlots = () => {
+const FutureReadyLocale = () => {
   return (
     <section
       className="
@@ -94,4 +94,4 @@ const PremiumVillaPlots = () => {
   );
 };
 
-export default PremiumVillaPlots;
+export default FutureReadyLocale;
